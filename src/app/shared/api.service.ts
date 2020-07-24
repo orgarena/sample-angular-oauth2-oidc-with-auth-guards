@@ -8,7 +8,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getProtectedApiResponse(): Observable<string> {
-    return this.http.get<any>('https://demo.identityserver.io/api/test')
+    return this.http.get<any>('http://localhost:7000/api/account/claims')
       .pipe(
         map(response => response.find(i => i.type === 'iss').value),
         map(iss => '☁ API Success from ' + iss),
